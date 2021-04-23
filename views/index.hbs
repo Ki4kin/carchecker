@@ -1,0 +1,32 @@
+{{#if username}}
+
+<div class="container d-flex justify-content-center mt-4 mb-4">
+  <p class="text-uppercase fs-2 me-5   btn-outline-dark">{{username}}</p>
+  <p><a class="btn btn-secondary btn-lg ms-5" href="/logout">LOGOUT</a></p>
+</div>
+
+ <form name="carForm" action="/getcar" method="POST">
+    <div class="input-group d-flex justify-content-center">
+    <label>
+      <input name="vin" class="form-control" type="text" placeholder="ENTER VIN CODE" 
+       maxlength="17" pattern="[a-zA-Z0-9]{9}[a-zA-Z0-9-]{2}[0-9]{6}">
+    </label>
+      <button type="submit" class="btn btn-outline-secondary">Get Car</button>
+      <button type="reset" class="btn btn-outline-secondary">Reset</button>
+    </div>
+  </form>
+
+  <div class="container input-group d-flex justify-content-center container-sm" >
+    <table class="table table-bordered table-striped table-hover mt-5 w-50" id="optionList" >
+    </table>
+  </div>
+
+
+{{else}}
+
+<div class=" container input-group d-flex flex-column justify-content-center w-25 mt-5">
+  <p><a href="/signup" class="btn btn-secondary btn-lg w-100" tabindex="-1" role="button" aria-disabled="true">SIGNUP</a></p>
+  <p><a href="/login" class="btn btn-secondary btn-lg w-100" tabindex="-1" role="button" aria-disabled="true">LOGIN</a></p>
+</div>
+
+{{/if}}
